@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 mongoose.connect(' mongodb://localhost:27017/condominio', { useNewUrlParser: true });
 
 const userRoutes = require('./routes/UserRoute');
+const condominiumRoutes = require('./routes/CondominiumRoute');
 
 // Prevent CORS errors
 app.use((req, res, next) => {
@@ -26,3 +27,4 @@ app.use((req, res, next) => {
   });
 
   app.use('/user', userRoutes);
+  app.use('/condominium', condominiumRoutes);

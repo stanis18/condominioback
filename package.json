@@ -3,17 +3,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "nodemon": "NODE_ENV=dev DEBUG=* nodemon ./index.js",
+    
+    "nodemon": " nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Comandos utilizados para criação e configuração do projeto",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.27"
+    "mongoose": "^5.9.28"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stanis18/condominioback.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stanis18/condominioback/issues"
+  },
+  "homepage": "https://github.com/stanis18/condominioback#readme"
 }
