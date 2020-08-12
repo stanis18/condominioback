@@ -2,16 +2,32 @@ const express = require('express');
 const router = express.Router();
 const Condominium = require('../models/CondominiumModel');
 
-router.get('/', (req, res) =>{
-    Condominium.find({}, function(err, condominiuns) {
-        var condominiunsMap = {};
+// router.get('/', (req, res) =>{
+//     Condominium.find({}, function(err, condominiuns) {
+//         var condominiunsMap = {};
     
-        condominiuns.forEach(function(condominium) {
-            condominiunsMap[condominium._id] = condominium;
+//         condominiuns.forEach(function(condominium) {
+//             condominiunsMap[condominium._id] = condominium;
+//         });
+
+//         res.send(condominiunsMap);  
+//       });
+//     });
+
+    router.get('/', (req, res) =>{
+        Condominium.find({}).then(condominiuns => {
+            var condominiunsMap = {};
+    
+            condominiuns.forEach(function(condominium) {
+                condominiunsMap[condominium._id] = condominium;
+            });
+
+            if(condominiunsMap){
+                res.status(200).json(condominiunsMap);
+            } else{
+                res.status(404).json({message: 'No valid entry found for provided ID'});
+            }
         });
-        
-        res.send(condominiunsMap);  
-      });
     });
 
 router.get('/:condominiumId', (req, res) =>{
